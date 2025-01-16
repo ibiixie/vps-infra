@@ -2,6 +2,6 @@
     email hi@biixie.com
 }
 
-whoami.localhost {
+whoami.biixie.com, whoami.staging.biixie.com, whoami.localhost {
     reverse_proxy whoami:80
 }
