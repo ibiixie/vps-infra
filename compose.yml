@@ -17,6 +17,7 @@ services:
       - ./caddy/site:/site
     networks:
       - caddy_proxy_net
+    env_file: "caddy/caddy.env"
 
   whoami:
     image: traefik/whoami
