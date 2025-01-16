@@ -2,6 +2,6 @@
     email hi@biixie.com
 }
 
-whoami.{$DOMAIN:localhost} {
-    reverse_proxy whoami:80
+{$DOMAIN:localhost} {
+    reverse_proxy /whoami whoami:80
 }
