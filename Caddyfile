@@ -3,5 +3,9 @@
 }
 
 {$DOMAIN:localhost} {
-    reverse_proxy /whoami whoami:80
+	route {
+		reverse_proxy /whoami whoami:80
+	
+		respond `under construction! check back soon c:`
+	}
 }
