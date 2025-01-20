@@ -3,9 +3,15 @@
 }
 
 {$DOMAIN:localhost} {
+	# Override default directive priority using route
 	route {
 		reverse_proxy /whoami whoami:80
 	
 		respond `under construction! check back soon c:`
 	}
+}
+
+# WWW redirect
+www.{$DOMAIN:localhost} {
+	redir {scheme}://{$SITE_HOSTNAME:localhost}{uri}
 }
