@@ -1,4 +1,1 @@
-caddy/
-
-**/*.env
-**/.env
+*.env
