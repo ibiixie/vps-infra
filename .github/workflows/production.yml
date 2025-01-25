@@ -2,13 +2,17 @@ name: Deploy Production
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch: 
 
 jobs:
 
   deploy:
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - name: Deploy
         uses: appleboy/ssh-action@v1.2.0
