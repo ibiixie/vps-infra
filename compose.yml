@@ -1,8 +1,6 @@
 services:
   caddy:
     image: caddy:2.9-alpine
-    container_name: caddy_proxy
-    restart: unless-stopped
     cap_add:
       - NET_ADMIN
     ports:
@@ -13,16 +11,12 @@ services:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - ./caddy/data:/data
       - ./caddy/config:/config
-      - ./caddy/conf:/conf
-      - ./caddy/site:/site
     networks:
       - caddy_proxy_net
     env_file: "caddy/caddy.env"
 
   whoami:
     image: traefik/whoami
-    container_name: whoami
-    restart: unless-stopped
     command:
        - --name=biixie
     networks:
