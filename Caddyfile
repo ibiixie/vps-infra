@@ -13,5 +13,5 @@
 
 # WWW redirect
 www.{$DOMAIN:localhost} {
-	redir {scheme}://{$SITE_HOSTNAME:localhost}{uri}
+	redir {scheme}://{$DOMAIN:localhost}{uri}
 }
