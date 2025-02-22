@@ -18,7 +18,7 @@ services:
   whoami:
     image: traefik/whoami
     command:
-       - --name=biixie
+      - --name=biixie
     networks:
       - caddy_proxy_net
 
