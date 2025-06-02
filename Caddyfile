@@ -1,5 +1,5 @@
 {
-    email hi@biixie.com
+    email {$EMAIL}
 }
 
 {$DOMAIN:localhost} {
@@ -7,11 +7,10 @@
 	route {
 		reverse_proxy /whoami whoami:80
 
-		# TODO: Remove this once website is ready!
-		respond `under construction! check back soon c:`
+		respond `any time now, i promise :D`
 
-		reverse_proxy biixie_frontend:8080
-		reverse_proxy biixie_backend:3000
+		reverse_proxy /api/* biixie_backend:3000
+		reverse_proxy biixie_frontend:80
 	}
 }
 

@@ -12,7 +12,7 @@ services:
       - ./caddy/data:/data
       - ./caddy/config:/config
     networks:
-      - caddy_proxy_net
+      - proxy_net
     env_file: "caddy/caddy.env"
 
   whoami:
@@ -20,7 +20,8 @@ services:
     command:
       - --name=biixie
     networks:
-      - caddy_proxy_net
+      - proxy_net
 
 networks:
-  caddy_proxy_net:
+  proxy_net:
+    name: proxy_net
