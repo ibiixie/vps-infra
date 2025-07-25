@@ -8,7 +8,7 @@
 		reverse_proxy /whoami whoami:80
 
 		respond `any time now, i promise :D`
-
+		
 		reverse_proxy /api/* biixie_backend:3000
 		reverse_proxy biixie_frontend:80
 	}

@@ -31,6 +31,7 @@
             pkgs.nodejs_23
             pkgs.yaml-language-server
             pkgs.nodePackages.prettier
+            pkgs.ansible
           ];
         };
 

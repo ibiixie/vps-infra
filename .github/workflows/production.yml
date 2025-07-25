@@ -1,30 +1,30 @@
-name: Deploy Production
+name: Deploy
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
-
   deploy:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - name: Deploy
-        uses: appleboy/ssh-action@v1.2.0
+      - name: Checkout source
+        uses: actions/checkout@v2
+
+      - name: Deploy stack
+        uses: cssnr/stack-deploy-action@v1
         with:
           host: ${{ secrets.REMOTE_HOST }}
-          username: ${{ secrets.REMOTE_USER }}
-          key: ${{ secrets.REMOTE_PRIVATE_KEY }}
-          script: |
-            echo "Checking out remote repository"
-            cd ${{ vars.STACK_DIRPATH }}
-            git fetch --all
-            git reset --hard origin/main
-            
-            echo "Deploying stack"
-            docker stack deploy --compose-file ${{ vars.STACK_FILEPATH }} ${{ vars.STACK_NAME }} --prune
+          user: ${{ secrets.REMOTE_USER }}
+          ssh_key: ${{ secrets.REMOTE_PRIVATE_KEY }}
+          file: ./compose.yaml
+          name: vps-infra
+          prune: true
+
+          # Add production compose override
+          args: -c ./compose.prod.yaml

@@ -9,11 +9,10 @@ services:
       - "443:443/udp"
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
-      - ./caddy/data:/data
-      - ./caddy/config:/config
+      - caddy_data:/data
+      - caddy_config:/config
     networks:
       - proxy_net
-    env_file: "caddy/caddy.env"
 
   whoami:
     image: traefik/whoami
@@ -21,6 +20,10 @@ services:
       - --name=biixie
     networks:
       - proxy_net
+
+volumes:
+  caddy_data:
+  caddy_config:
 
 networks:
   proxy_net:

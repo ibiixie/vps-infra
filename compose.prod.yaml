@@ -1,0 +1,8 @@
+services:
+  caddy:
+    environment:
+      DOMAIN: biixie.com
+      EMAIL: ${CADDY_EMAIL}
+
+volumes:
+  caddy:
