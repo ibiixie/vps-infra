@@ -23,6 +23,6 @@ jobs:
           host: ${{ secrets.REMOTE_HOST }}
           user: ${{ secrets.REMOTE_USER }}
           ssh_key: ${{ secrets.REMOTE_PRIVATE_KEY }}
-          file: ./compose.yml;./compose.prod.yaml
+          file: ./compose.yaml;./compose.prod.yaml
           name: vps-infra
           prune: true
