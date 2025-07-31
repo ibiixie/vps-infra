@@ -24,5 +24,4 @@ jobs:
           ssh_key: ${{ secrets.REMOTE_PRIVATE_KEY }}
           file: ./compose.yaml;./compose.prod.yaml
           name: vps-infra
-          prune: true
           mode: compose
