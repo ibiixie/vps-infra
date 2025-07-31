@@ -2,7 +2,6 @@ services:
   caddy:
     build:
       context: ./caddy
-      dockerfile: ./caddy/Dockerfile
     cap_add:
       - NET_ADMIN
     ports:
@@ -10,7 +9,6 @@ services:
       - "443:443"
       - "443:443/udp"
     volumes:
-      # - ./Caddyfile:/etc/caddy/Caddyfile
       - caddy_data:/data
       - caddy_config:/config
     networks:

@@ -1,3 +1,3 @@
 services:
   caddy:
-    env_file: caddy/caddy.dev.env
+    env_file: ./caddy/caddy.dev.env

@@ -16,8 +16,7 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v2
 
-      - name: Deploy stack
-        #         uses: cssnr/stack-deploy-action@v1
+      - name: Deploy Stack to Host
         uses: ibiixie/stack-deploy-action@feature/multiple-compose-inputs
         with:
           host: ${{ secrets.REMOTE_HOST }}
@@ -26,3 +25,4 @@ jobs:
           file: ./compose.yaml;./compose.prod.yaml
           name: vps-infra
           prune: true
+          mode: compose
