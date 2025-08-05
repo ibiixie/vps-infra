@@ -2,6 +2,7 @@ services:
   caddy:
     build:
       context: ./caddy
+      no_cache: true # Ensure Caddy config is up-to-date
     cap_add:
       - NET_ADMIN
     ports:
