@@ -3,6 +3,7 @@ services:
     build:
       context: ./caddy
       no_cache: true # Ensure Caddy config is up-to-date
+    restart: always
     cap_add:
       - NET_ADMIN
     ports:
@@ -17,6 +18,7 @@ services:
 
   whoami:
     image: traefik/whoami
+    restart: always
     command:
       - --name=biixie
     networks:
